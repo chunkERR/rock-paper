@@ -24,47 +24,38 @@ function computerPlay(min, max) {
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay();
   if (playerSelection == "rock" && computerSelection == "scissors") {
+    console.log((`You win! Rock beats scissors.`));
     playerScore++;
-    console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score);
-    return (`You win! Rock beats scissors.`);
+    console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`);
   } else if (playerSelection == "rock" && computerSelection == "paper") {
+    console.log(("You lose! Paper beats rock."));
     computerScore++
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("You lose! Paper beats rock.");
   } else if (playerSelection == "rock" && computerSelection == "rock") {
+    console.log(("Draw! No one wins!."))
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("Draw! No one wins!.");
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    console.log("You lose! Scissors beat paper.");
     computerScore++
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("You lose! Scissors beat paper.");
   } else if (playerSelection == "paper" && computerSelection == "rock") {
+    console.log()("You win! Paper beats rock.");
     playerScore++;
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("You win! Paper beats rock.");
   } else if (playerSelection == "paper" && computerSelection == "paper") {
-    console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("Draw! No one wins!.");
+    console.log()("Draw! No one wins!.")
+    console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`);
   } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+    console.log()("Draw! No one wins!.");
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("Draw! No one wins!.");
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    console.log()("You lose! Rock beat scissors.");
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
     computerScore++;
-    return ("You lose! Rock beat scissors.");
   } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    console.log(("You win! Scissors beat paper."))
     playerScore++;
     console.log(`Computer Score : ${computerScore}, Player Score : ${playerScore}`)
-    console.log(score)
-    return ("You win! Scissors beat paper.");
   };
 }
 
