@@ -1,5 +1,5 @@
 let computerMove;
-let playerChoice = window.prompt("What is your move? Rock? Paper? Scissors?");
+let playerChoice = prompt("What is your move? Rock? Paper? Scissors?");
 
 // let roundResult = "";
 
@@ -21,7 +21,6 @@ function computerPlay(min, max) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerChoice;
   computerSelection = computerPlay();
   if (playerSelection == "rock" && computerSelection == "scissors") {
     console.log(`You win! Rock beats scissors.`);
@@ -35,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
     console.log("You lose! Scissors beat paper.");
     computerScore++;
   } else if (playerSelection == "paper" && computerSelection == "rock") {
-    console.log(("You win! Paper beats rock."));
+    console.log()("You win! Paper beats rock.");
     playerScore++;
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
     console.log()("You lose! Rock beat scissors.");
