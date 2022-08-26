@@ -1,15 +1,12 @@
-const playerText = document.querySelector(".playerText")
-const computerText = document.querySelector(".computerText")
 const resultText = document.querySelector(".resultText")
-const pScore = document.querySelector(".playerScore")
-const cScore = document.querySelector(".computerScore")
+const pScore = document.querySelector(".player-score")
+const cScore = document.querySelector(".computer-score")
 const options = document.querySelectorAll(".option")
 
 let result;
 
 let playerScore = 0;
 let computerScore = 0;
-let draws = 0;
 
 function computerPlay() {
   let computerMove = Math.floor(Math.random() * 3);
@@ -24,7 +21,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  console.log("1", playerSelection, computerSelection, "2")
   if (playerSelection === computerSelection) {
     const p = document.createElement("p")
     p.innerText = ("Draw! No one wins!")
@@ -51,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
     resultText.appendChild(p)
   } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
     const p = document.createElement("p")
-    p.innerText = ("You lose! ROCK beat scissors.");
+    p.innerText = ("You lose! Rock beat scissors.");
     computerScore++;
     resultText.appendChild(p)
   } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
@@ -64,14 +60,30 @@ function playRound(playerSelection, computerSelection) {
 
 const checkForWinner = function (playerScore, computerScore) {
   if (playerScore === 5) {
+    const h3 = document.createElement("h3")
+    h3.innerText = (`You beat the computer ${playerScore} to ${computerScore}.`)
+    resultText.appendChild(h3)
+  } else if (computerScore === 5) {
+    const h3 = document.createElement("h3")
+    h3.innerText = (`The computer beat you ${computerScore} to ${playerScore}.`)
+    resultText.appendChild(h3)
 
   }
+}
+
+
+const updateScores = function (playerScore, computerScore) {
+  pScore.innerText = `Player's Score: ${playerScore}`
+  cScore.innerText = `Computer's Score: ${computerScore}`
+
 }
 
 options.forEach(button => button.addEventListener("click", () => {
   const computerSelection = computerPlay()
   const playerSelection = button.textContent;
   playRound(playerSelection, computerSelection);
+  updateScores(playerScore, computerScore)
+  checkForWinner(playerScore, computerScore)
 }))
 
 
